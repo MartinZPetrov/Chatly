@@ -12,9 +12,11 @@ namespace ChatlyServices
     using System;
     using System.Collections.Generic;
     
-    public partial class Messages
+    public partial class Users
     {
         public int Id { get; set; }
-        public string Message { get; set; }
+        public string Email { get; set; }
+        public byte[] PasswordHash { get; set; }
+        public string UserName { get; set; }
     }
 }

@@ -26,5 +26,6 @@ namespace ChatlyServices
         }
     
         public virtual DbSet<Messages> Messages { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

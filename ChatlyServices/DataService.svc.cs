@@ -12,7 +12,8 @@ namespace ChatlyServices
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class DataService : IDataService
     {
-        private DataRepository dataRepo = new DataRepository();
+        //data Repo
+        private IMessageRepository dataRepo = new MessagesRepository();
         public Messages GetMessage(int bookmarkId)
         {
             return dataRepo.GetMessage(bookmarkId);

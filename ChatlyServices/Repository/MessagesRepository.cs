@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ChatlyServices
 {
-    public class DataRepository : IDataRepository
+    public class MessagesRepository : IMessageRepository
     {
 
       #region Member Variables
@@ -14,13 +14,13 @@ namespace ChatlyServices
 
       #region Constructor
 
-      public DataRepository()
+      public MessagesRepository()
       {
           entity = new ChatlyEntities(); //Wrap and instantiate the ObjectContext
       }
 
       #endregion
-      #region IBookmarkRepository Members
+      #region Messages
 
       public Messages GetMessage(int messageID)
       {
@@ -59,5 +59,9 @@ namespace ChatlyServices
       }
 
       #endregion
+
+     #region 
+
+     #endregion
     }
 }
