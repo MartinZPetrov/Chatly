@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Chatly.Models.ChatRoomViewModel
+@{
     ViewBag.Title = "Chat";
 }
 
@@ -21,12 +22,12 @@
 <div class="row">
     <div class="col-md-12">
         <div class="d-flex justify-content-center">
-            <form id="frmChat" runat="server">
+            <form id="frmChat" method="post" action="home/" runat="server">
                 <div class="row">
                     <div class="col-md-8">
                         <label for="txbUserName">Username:</label>
                         <div class="form-group d-flex">
-                            <input type="text" class="form-control" id="txbUserName" placeholder="name" value="@Request.RequestContext.HttpContext.Session["username"]">
+                            <input type="text" class="form-control" id="txbUserName" placeholder="name" value=@Model.UserName>
                             <input id="btnJoin" type="button" class="btn btn-primary" value="Join" /><br />
                         </div>
                     </div>
@@ -61,5 +62,6 @@
         $(document).ready(function () {
             $("#btnJoin").click();
         });
+    
     </script>
 }

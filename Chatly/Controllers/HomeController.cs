@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Chatly.ServiceReference;
+using Chatly.Models;
 
 namespace Chatly.Controllers
 {
@@ -19,13 +20,22 @@ namespace Chatly.Controllers
             //var msg = new Messages();
             //msg.Message = "Test your skills";
             //dataservice.AddMessage(msg);
-            
+
             return View();
         }
 
         public ActionResult Chat()
         {
-            return View();
+            var user = Session["user"] as Users;
+            if (user == null) return RedirectToAction("Index", "Home");
+            var model = new ChatRoomViewModel()
+            {
+                UserName = user.UserName,
+                GameRoomCode = "CHAT777"
+
+            };
+
+            return View(model);
         }
 
         public ActionResult About()

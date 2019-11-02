@@ -63,6 +63,8 @@
     $('#btnSend').click(function () {
         if (joinedChat) {
             //if (document.getElementById("txbMessage").value.length > 0) {
+            let val = document.getElementById("txbMessage").value;
+            AddChatMessage(val);
             gHub.invoke('messageFromUser', document.getElementById("txbMessage").value)
                 .done(function () {
                     //Request Sent
@@ -136,5 +138,13 @@
             mpwchat.log.write("[InfoServ Chat]{Error} " + ex.message);
         }
     });
+
+    function AddChatMessage(message) {
+        $.ajax({
+            type:"POST",
+            url: 'AddMessage',
+            data: { message: message }
+        })
+    }
 
 }(window.mpwchat = window.mpwchat || {}));

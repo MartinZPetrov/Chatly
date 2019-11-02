@@ -25,7 +25,7 @@ namespace Chatly.Controllers
             dataservice = new DataServiceClient();
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -37,9 +37,9 @@ namespace Chatly.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -137,7 +137,7 @@ namespace Chatly.Controllers
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
             var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
-            
+
             switch (result)
             {
                 case SignInStatus.Success:
@@ -181,7 +181,7 @@ namespace Chatly.Controllers
 
                     Session["user"] = result;
                     Session["username"] = result.UserName;
-                    
+
                     return RedirectToAction("Index", "Home");
                 }
                 //AddErrors(result);
