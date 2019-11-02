@@ -37,6 +37,66 @@
   <wsdl:message name="IDataService_DeleteMessage_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteMessageResponse" />
   </wsdl:message>
+  <wsdl:message name="IDataService_GetPin_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPin" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPinsList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPinsList" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPinsList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPinsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddPin_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPin" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddPin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdatePin_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePin" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdatePin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeletePin_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePin" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeletePin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_Create_InputMessage">
+    <wsdl:part name="parameters" element="tns:Create" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_Create_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_Delete_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_Delete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UserExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserExists" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UserExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_Save_InputMessage">
+    <wsdl:part name="parameters" element="tns:Save" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_Save_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDataService">
     <wsdl:operation name="GetMessage">
       <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetMessage" message="tns:IDataService_GetMessage_InputMessage" />
@@ -57,6 +117,46 @@
     <wsdl:operation name="DeleteMessage">
       <wsdl:input wsaw:Action="http://tempuri.org/IDataService/DeleteMessage" message="tns:IDataService_DeleteMessage_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDataService/DeleteMessageResponse" message="tns:IDataService_DeleteMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetPin" message="tns:IDataService_GetPin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetPinResponse" message="tns:IDataService_GetPin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPinsList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetPinsList" message="tns:IDataService_GetPinsList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetPinsListResponse" message="tns:IDataService_GetPinsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/AddPin" message="tns:IDataService_AddPin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/AddPinResponse" message="tns:IDataService_AddPin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/UpdatePin" message="tns:IDataService_UpdatePin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/UpdatePinResponse" message="tns:IDataService_UpdatePin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/DeletePin" message="tns:IDataService_DeletePin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/DeletePinResponse" message="tns:IDataService_DeletePin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/Login" message="tns:IDataService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/LoginResponse" message="tns:IDataService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/Create" message="tns:IDataService_Create_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/CreateResponse" message="tns:IDataService_Create_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/Delete" message="tns:IDataService_Delete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/DeleteResponse" message="tns:IDataService_Delete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserExists">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/UserExists" message="tns:IDataService_UserExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/UserExistsResponse" message="tns:IDataService_UserExists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/Save" message="tns:IDataService_Save_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/SaveResponse" message="tns:IDataService_Save_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDataService" type="tns:IDataService">
@@ -99,6 +199,96 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteMessage">
       <soap:operation soapAction="http://tempuri.org/IDataService/DeleteMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPin">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetPin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPinsList">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetPinsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPin">
+      <soap:operation soapAction="http://tempuri.org/IDataService/AddPin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePin">
+      <soap:operation soapAction="http://tempuri.org/IDataService/UpdatePin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePin">
+      <soap:operation soapAction="http://tempuri.org/IDataService/DeletePin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IDataService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <soap:operation soapAction="http://tempuri.org/IDataService/Create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://tempuri.org/IDataService/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserExists">
+      <soap:operation soapAction="http://tempuri.org/IDataService/UserExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <soap:operation soapAction="http://tempuri.org/IDataService/Save" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

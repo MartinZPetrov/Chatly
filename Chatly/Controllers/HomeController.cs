@@ -43,7 +43,13 @@ namespace Chatly.Controllers
         }
         protected override void Dispose(bool disposing)
         {
-            dataservice.Close();
+            if (dataservice != null)
+            {
+                if (dataservice.State != System.ServiceModel.CommunicationState.Closed)
+                {
+                    dataservice.Close();
+                }
+            }
             base.Dispose(disposing);
         }
     }

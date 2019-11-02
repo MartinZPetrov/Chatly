@@ -99,6 +99,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ChatlyModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Pins.cs">
+      <DependentUpon>ChatlyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\IPinRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="Repository\MessagesRepository.cs" />
     <Compile Include="Repository\IMessageRepository.cs" />
@@ -110,6 +114,7 @@
     </Compile>
     <Compile Include="IDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\PinRepository.cs" />
     <Compile Include="Repository\UsersRepository.cs" />
     <Compile Include="Users.cs">
       <DependentUpon>ChatlyModel.tt</DependentUpon>

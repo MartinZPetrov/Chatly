@@ -17,7 +17,9 @@ namespace ChatlyServices
     {
         public ChatlyEntities()
             : base("name=ChatlyEntities")
+        
         {
+            this.Configuration.ProxyCreationEnabled = false; 
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -26,6 +28,7 @@ namespace ChatlyServices
         }
     
         public virtual DbSet<Messages> Messages { get; set; }
+        public virtual DbSet<Pins> Pins { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }
 }

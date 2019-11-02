@@ -12,7 +12,7 @@ namespace ChatlyServices
     [ServiceContract]
     public interface IDataService
     {
-
+        //MESSAGES
         [OperationContract]
         Messages GetMessage(int bookmarkId);
         [OperationContract]
@@ -22,7 +22,29 @@ namespace ChatlyServices
         [OperationContract]
         void UpdateMessage(Messages message);
         [OperationContract]
-        void DeleteMessage(Messages message); 
+        void DeleteMessage(Messages message);
+        [OperationContract]
+        //PINS
+        Pins GetPin(int pinId);
+        [OperationContract]
+        IEnumerable<Pins> GetPinsList();
+        [OperationContract]
+        void AddPin(Pins pin);
+        [OperationContract]
+        void UpdatePin(Pins pin);
+        [OperationContract]
+        void DeletePin(Pins pin);
+        //USERS
+        [OperationContract]
+        Users Login(string username, string password);
+        [OperationContract]
+        Users Create(Users user, string password);
+        [OperationContract]
+        void Delete(int id);
+        [OperationContract]
+        bool UserExists(int userId);
+        [OperationContract]
+        bool Save();
 
         // TODO: Add your service operations here
     }

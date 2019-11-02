@@ -28,6 +28,18 @@ namespace Chatly.ServiceReference {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MessageField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> PinIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Chatly.ServiceReference.Pins PinsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> UserIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Chatly.ServiceReference.Users UsersField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -60,6 +72,260 @@ namespace Chatly.ServiceReference {
                 if ((object.ReferenceEquals(this.MessageField, value) != true)) {
                     this.MessageField = value;
                     this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> PinId {
+            get {
+                return this.PinIdField;
+            }
+            set {
+                if ((this.PinIdField.Equals(value) != true)) {
+                    this.PinIdField = value;
+                    this.RaisePropertyChanged("PinId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Chatly.ServiceReference.Pins Pins {
+            get {
+                return this.PinsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PinsField, value) != true)) {
+                    this.PinsField = value;
+                    this.RaisePropertyChanged("Pins");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Chatly.ServiceReference.Users Users {
+            get {
+                return this.UsersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsersField, value) != true)) {
+                    this.UsersField = value;
+                    this.RaisePropertyChanged("Users");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Pins", Namespace="http://schemas.datacontract.org/2004/07/ChatlyServices")]
+    [System.SerializableAttribute()]
+    public partial class Pins : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Chatly.ServiceReference.Messages[] MessagesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PinCodeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Chatly.ServiceReference.Messages[] Messages {
+            get {
+                return this.MessagesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessagesField, value) != true)) {
+                    this.MessagesField = value;
+                    this.RaisePropertyChanged("Messages");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PinCode {
+            get {
+                return this.PinCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PinCodeField, value) != true)) {
+                    this.PinCodeField = value;
+                    this.RaisePropertyChanged("PinCode");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Users", Namespace="http://schemas.datacontract.org/2004/07/ChatlyServices")]
+    [System.SerializableAttribute()]
+    public partial class Users : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Chatly.ServiceReference.Messages[] MessagesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] PasswordHashField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] PasswordSaltField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Chatly.ServiceReference.Messages[] Messages {
+            get {
+                return this.MessagesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessagesField, value) != true)) {
+                    this.MessagesField = value;
+                    this.RaisePropertyChanged("Messages");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] PasswordHash {
+            get {
+                return this.PasswordHashField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordHashField, value) != true)) {
+                    this.PasswordHashField = value;
+                    this.RaisePropertyChanged("PasswordHash");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] PasswordSalt {
+            get {
+                return this.PasswordSaltField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordSaltField, value) != true)) {
+                    this.PasswordSaltField = value;
+                    this.RaisePropertyChanged("PasswordSalt");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
                 }
             }
         }
@@ -107,6 +373,66 @@ namespace Chatly.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/DeleteMessage", ReplyAction="http://tempuri.org/IDataService/DeleteMessageResponse")]
         System.Threading.Tasks.Task DeleteMessageAsync(Chatly.ServiceReference.Messages message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetPin", ReplyAction="http://tempuri.org/IDataService/GetPinResponse")]
+        Chatly.ServiceReference.Pins GetPin(int pinId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetPin", ReplyAction="http://tempuri.org/IDataService/GetPinResponse")]
+        System.Threading.Tasks.Task<Chatly.ServiceReference.Pins> GetPinAsync(int pinId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetPinsList", ReplyAction="http://tempuri.org/IDataService/GetPinsListResponse")]
+        Chatly.ServiceReference.Pins[] GetPinsList();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetPinsList", ReplyAction="http://tempuri.org/IDataService/GetPinsListResponse")]
+        System.Threading.Tasks.Task<Chatly.ServiceReference.Pins[]> GetPinsListAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/AddPin", ReplyAction="http://tempuri.org/IDataService/AddPinResponse")]
+        void AddPin(Chatly.ServiceReference.Pins pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/AddPin", ReplyAction="http://tempuri.org/IDataService/AddPinResponse")]
+        System.Threading.Tasks.Task AddPinAsync(Chatly.ServiceReference.Pins pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/UpdatePin", ReplyAction="http://tempuri.org/IDataService/UpdatePinResponse")]
+        void UpdatePin(Chatly.ServiceReference.Pins pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/UpdatePin", ReplyAction="http://tempuri.org/IDataService/UpdatePinResponse")]
+        System.Threading.Tasks.Task UpdatePinAsync(Chatly.ServiceReference.Pins pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/DeletePin", ReplyAction="http://tempuri.org/IDataService/DeletePinResponse")]
+        void DeletePin(Chatly.ServiceReference.Pins pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/DeletePin", ReplyAction="http://tempuri.org/IDataService/DeletePinResponse")]
+        System.Threading.Tasks.Task DeletePinAsync(Chatly.ServiceReference.Pins pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/Login", ReplyAction="http://tempuri.org/IDataService/LoginResponse")]
+        Chatly.ServiceReference.Users Login(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/Login", ReplyAction="http://tempuri.org/IDataService/LoginResponse")]
+        System.Threading.Tasks.Task<Chatly.ServiceReference.Users> LoginAsync(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/Create", ReplyAction="http://tempuri.org/IDataService/CreateResponse")]
+        Chatly.ServiceReference.Users Create(Chatly.ServiceReference.Users user, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/Create", ReplyAction="http://tempuri.org/IDataService/CreateResponse")]
+        System.Threading.Tasks.Task<Chatly.ServiceReference.Users> CreateAsync(Chatly.ServiceReference.Users user, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/Delete", ReplyAction="http://tempuri.org/IDataService/DeleteResponse")]
+        void Delete(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/Delete", ReplyAction="http://tempuri.org/IDataService/DeleteResponse")]
+        System.Threading.Tasks.Task DeleteAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/UserExists", ReplyAction="http://tempuri.org/IDataService/UserExistsResponse")]
+        bool UserExists(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/UserExists", ReplyAction="http://tempuri.org/IDataService/UserExistsResponse")]
+        System.Threading.Tasks.Task<bool> UserExistsAsync(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/Save", ReplyAction="http://tempuri.org/IDataService/SaveResponse")]
+        bool Save();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/Save", ReplyAction="http://tempuri.org/IDataService/SaveResponse")]
+        System.Threading.Tasks.Task<bool> SaveAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -174,6 +500,86 @@ namespace Chatly.ServiceReference {
         
         public System.Threading.Tasks.Task DeleteMessageAsync(Chatly.ServiceReference.Messages message) {
             return base.Channel.DeleteMessageAsync(message);
+        }
+        
+        public Chatly.ServiceReference.Pins GetPin(int pinId) {
+            return base.Channel.GetPin(pinId);
+        }
+        
+        public System.Threading.Tasks.Task<Chatly.ServiceReference.Pins> GetPinAsync(int pinId) {
+            return base.Channel.GetPinAsync(pinId);
+        }
+        
+        public Chatly.ServiceReference.Pins[] GetPinsList() {
+            return base.Channel.GetPinsList();
+        }
+        
+        public System.Threading.Tasks.Task<Chatly.ServiceReference.Pins[]> GetPinsListAsync() {
+            return base.Channel.GetPinsListAsync();
+        }
+        
+        public void AddPin(Chatly.ServiceReference.Pins pin) {
+            base.Channel.AddPin(pin);
+        }
+        
+        public System.Threading.Tasks.Task AddPinAsync(Chatly.ServiceReference.Pins pin) {
+            return base.Channel.AddPinAsync(pin);
+        }
+        
+        public void UpdatePin(Chatly.ServiceReference.Pins pin) {
+            base.Channel.UpdatePin(pin);
+        }
+        
+        public System.Threading.Tasks.Task UpdatePinAsync(Chatly.ServiceReference.Pins pin) {
+            return base.Channel.UpdatePinAsync(pin);
+        }
+        
+        public void DeletePin(Chatly.ServiceReference.Pins pin) {
+            base.Channel.DeletePin(pin);
+        }
+        
+        public System.Threading.Tasks.Task DeletePinAsync(Chatly.ServiceReference.Pins pin) {
+            return base.Channel.DeletePinAsync(pin);
+        }
+        
+        public Chatly.ServiceReference.Users Login(string username, string password) {
+            return base.Channel.Login(username, password);
+        }
+        
+        public System.Threading.Tasks.Task<Chatly.ServiceReference.Users> LoginAsync(string username, string password) {
+            return base.Channel.LoginAsync(username, password);
+        }
+        
+        public Chatly.ServiceReference.Users Create(Chatly.ServiceReference.Users user, string password) {
+            return base.Channel.Create(user, password);
+        }
+        
+        public System.Threading.Tasks.Task<Chatly.ServiceReference.Users> CreateAsync(Chatly.ServiceReference.Users user, string password) {
+            return base.Channel.CreateAsync(user, password);
+        }
+        
+        public void Delete(int id) {
+            base.Channel.Delete(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteAsync(int id) {
+            return base.Channel.DeleteAsync(id);
+        }
+        
+        public bool UserExists(int userId) {
+            return base.Channel.UserExists(userId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UserExistsAsync(int userId) {
+            return base.Channel.UserExistsAsync(userId);
+        }
+        
+        public bool Save() {
+            return base.Channel.Save();
+        }
+        
+        public System.Threading.Tasks.Task<bool> SaveAsync() {
+            return base.Channel.SaveAsync();
         }
     }
 }

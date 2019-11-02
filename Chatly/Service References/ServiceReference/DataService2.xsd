@@ -4,13 +4,42 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PinId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Pins" nillable="true" type="tns:Pins" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Users" nillable="true" type="tns:Users" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Messages" nillable="true" type="tns:Messages" />
+  <xs:complexType name="Pins">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Messages" nillable="true" type="tns:ArrayOfMessages" />
+      <xs:element minOccurs="0" name="PinCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Pins" nillable="true" type="tns:Pins" />
   <xs:complexType name="ArrayOfMessages">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Messages" nillable="true" type="tns:Messages" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfMessages" nillable="true" type="tns:ArrayOfMessages" />
+  <xs:complexType name="Users">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Messages" nillable="true" type="tns:ArrayOfMessages" />
+      <xs:element minOccurs="0" name="PasswordHash" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="PasswordSalt" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Users" nillable="true" type="tns:Users" />
+  <xs:complexType name="ArrayOfPins">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Pins" nillable="true" type="tns:Pins" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPins" nillable="true" type="tns:ArrayOfPins" />
 </xs:schema>

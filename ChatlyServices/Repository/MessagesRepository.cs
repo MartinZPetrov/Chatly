@@ -9,14 +9,14 @@ namespace ChatlyServices
     {
 
       #region Member Variables
-      private ChatlyEntities entity = null;
+      private ChatlyEntities context = null;
       #endregion
 
       #region Constructor
 
       public MessagesRepository()
       {
-          entity = new ChatlyEntities(); //Wrap and instantiate the ObjectContext
+          context = new ChatlyEntities(); //Wrap and instantiate the ObjectContext
       }
 
       #endregion
@@ -26,7 +26,7 @@ namespace ChatlyServices
       {
 
          //Apply LINQ get the specific bookmark based in id
-          var msg = from b in entity.Messages
+          var msg = from b in context.Messages
                          where b.Id == messageID
                          select b;
           return msg.FirstOrDefault();
@@ -35,33 +35,29 @@ namespace ChatlyServices
 
       public IEnumerable<Messages> GetMessagesList()
       {
-          return entity.Messages.ToList();
+          return context.Messages.ToList();
       }
 
       public void AddMessage(Messages message)
       {
-          entity.Messages.Add(message);
-          entity.SaveChanges(); //Persist changes to DB
+          context.Messages.Add(message);
+          context.SaveChanges(); //Persist changes to DB
       }
 
       public void UpdateMessage(Messages message)
       {
           Messages existingMessage = GetMessage(message.Id);
-          entity.Entry(existingMessage).CurrentValues.SetValues(message);
-          entity.SaveChanges(); //Persist changes to DB
+          context.Entry(existingMessage).CurrentValues.SetValues(message);
+          context.SaveChanges(); //Persist changes to DB
       }
 
       public void DeleteMessage(Messages message)
       {
           Messages existingMessages = GetMessage(message.Id);
-          entity.Messages.Remove(message);
-          entity.SaveChanges(); //Persist changes to DB
+          context.Messages.Remove(message);
+          context.SaveChanges(); //Persist changes to DB
       }
 
       #endregion
-
-     #region 
-
-     #endregion
     }
 }

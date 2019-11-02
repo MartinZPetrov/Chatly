@@ -16,5 +16,10 @@ namespace ChatlyServices
     {
         public int Id { get; set; }
         public string Message { get; set; }
+        public Nullable<int> PinId { get; set; }
+        public Nullable<int> UserId { get; set; }
+    
+        public virtual Pins Pins { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

@@ -22,31 +22,31 @@
         //On Connect
         if (!joinedChat) {
             document.getElementById("txaChat").value = ""; //Reset chat box
-            mpwchat.log.write("[MPW Chat] Connecting...");
+            mpwchat.log.write("[InfoServ Chat] Connecting...");
             conn.stop();
             //Start connection
             conn.start().done(function () {
                 try {
-                    mpwchat.log.write("[MPW Chat] Connected to Chat Server");
+                    mpwchat.log.write("[InfoServ Chat] Connected to Chat Server");
                     //Connect Request
                     var userName = document.getElementById("txbUserName").value;
                     if (!userName) {
-                        mpwchat.log.write("[MPW Chat]{Error} Invalid Username");
+                        mpwchat.log.write("[InfoServ Chat]{Error} Invalid Username");
                     } else {
-                        mpwchat.log.write("[MPW Chat] Joining as " + userName);
+                        mpwchat.log.write("[InfoServ Chat] Joining as " + userName);
                         gHub.invoke('userInformation', userName)
                             .done(function () {
                                 //Request Sent
                             })
                             .fail(function (error) {
                                 //Request Failed
-                                mpwchat.log.write("[MPW Chat]{Error} " + error.message);
+                                mpwchat.log.write("[InfoServ Chat]{Error} " + error.message);
                                 conn.stop();
                                 joinedChat = false;
                             });
                     }
                 } catch (ex) {
-                    mpwchat.log.write("[MPW Chat]{Error} " + ex.message);
+                    mpwchat.log.write("[InfoServ Chat]{Error} " + ex.message);
                     conn.stop();
                     joinedChat = false;
                 }
@@ -70,7 +70,7 @@
                 })
                 .fail(function (error) {
                     //Request Failed
-                    mpwchat.log.write("[MPW Chat]{Error} " + error.message);
+                    mpwchat.log.write("[InfoServ Chat]{Error} " + error.message);
                     conn.stop();
                     joinedChat = false;
                 });
@@ -81,7 +81,7 @@
     //Server message: In response to userInformation
     gHub.on('userInfoResults', function (results) {
         if (results) {
-            mpwchat.log.write("[MPW Chat] Joined Chat");
+            mpwchat.log.write("[InfoServ Chat] Joined Chat");
             document.getElementById("btnJoin").value = "Disconnect";
         }
         else {
@@ -123,7 +123,7 @@
         try {
             document.getElementById("txaChat").value += "User '" + user + "' Disconnected \n";
         } catch (ex) {
-            mpwchat.log.write("[MPW Chat]{Error} " + ex.message);
+            mpwchat.log.write("[InfoServ Chat]{Error} " + ex.message);
         }
     });
 
@@ -133,7 +133,7 @@
             document.getElementById("txaChat").value += username + ": " + message + '\n';
 
         } catch (ex) {
-            mpwchat.log.write("[MPW Chat]{Error} " + ex.message);
+            mpwchat.log.write("[InfoServ Chat]{Error} " + ex.message);
         }
     });
 

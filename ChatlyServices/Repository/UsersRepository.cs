@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace ChatlyServices.Repository
+namespace ChatlyServices
 {
     public class UsersRepository : IUserRepository
     {
@@ -15,20 +15,20 @@ namespace ChatlyServices.Repository
             context =  new ChatlyEntities();
         }
 
-        public Users Authenticate(string username, string password)
+        public Users Authenticate(string email, string password)
         {
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
                 return null;
 
-            var user = context.Users.SingleOrDefault(x => x.UserName == username);
+            var user = context.Users.SingleOrDefault(x => x.Email == email);
 
             // check that user exists
             if (user == null)
                 return null;
 
             // check if password is correct
-            //if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
-            //    return null;
+            if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
+                return null;
             
                 
 
@@ -46,8 +46,9 @@ namespace ChatlyServices.Repository
                 throw new ArgumentException("This username is already taken");
 
             byte[] passwordHash, passwordSalt;
-            CreatePasswordHash(password, out passwordHash);
+            CreatePasswordHash(password, out passwordHash, out passwordSalt);
 
+            user.PasswordSalt = passwordSalt;
             user.PasswordHash = passwordHash;
 
             context.Users.Add(user);
@@ -56,13 +57,14 @@ namespace ChatlyServices.Repository
             return user;
         }
 
-        private static void CreatePasswordHash(string password, out byte[] passwordHash)
+        private static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             if (password == null) throw new ArgumentNullException("password");
             if (string.IsNullOrWhiteSpace(password)) throw new ArgumentNullException("Value cannot be empty");
 
             using (var hmac = new System.Security.Cryptography.HMACSHA512())
             {
+                passwordSalt = hmac.Key;
                 passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
             }
         }
