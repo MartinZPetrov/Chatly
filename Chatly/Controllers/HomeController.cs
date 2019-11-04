@@ -22,14 +22,19 @@ namespace Chatly.Controllers
             return View();
         }
 
-        public ActionResult Chat()
+        public async Task<ActionResult> Chat()
         {
             var user = Session["user"] as Users;
-            if (user == null) return RedirectToAction("Index", "Home");
+            var codes = await dataservice.GetCodesListAsync();
+            if (user == null || codes == null) return RedirectToAction("Index", "Home");
+
+            var res = CastToCodeViewModel(codes);
+
             var model = new ChatRoomViewModel()
             {
                 UserName = user.UserName,
-                GameRoomCode = "ABC777"
+                Codes = res,
+                CodeId = res[0].Id
 
             };
        
@@ -43,13 +48,34 @@ namespace Chatly.Controllers
             return View();
         }
 
-        public async Task<ActionResult> AddMessage(string message)
+        public async Task<ActionResult> AddMessage(string user, string message, string roomCode)
         {
+            var usersFromDB = await dataservice.GetUsersListAsync();
+            bool createNewuser = false;
+            var users = dataservice.GetCodesListAsync();
             var usr = Session["user"] as Users;
+            if (user != usr.UserName) createNewuser = true;
+            Users newUser = null;
+            if (createNewuser)
+            {
+                newUser = usersFromDB.FirstOrDefault(e => e.UserName.ToLower().Trim() == user.ToLower().Trim());
+                if (newUser == null)
+                {
+                    var userToCreate = new Users();
+                    userToCreate.UserName = user;
+                    userToCreate.Email = user + "@yahoo.com";
+                    newUser = await dataservice.CreateAsync(userToCreate, user);
+                }
+            }
+
+            var codes = await dataservice.GetCodesListAsync();
+            var code = codes.FirstOrDefault(e => e.PinCode == roomCode);
             var msg = new Messages();
             msg.Message = message;
-            msg.UserId = usr.Id;
-            msg.PinId = 1;
+            int userId = 0;
+            userId = newUser != null ? newUser.Id : usr.Id;
+            msg.UserId = userId;
+            msg.PinId = code.Id;
 
             await dataservice.AddMessageAsync(msg);
             return new HttpStatusCodeResult(HttpStatusCode.OK);
@@ -72,6 +98,19 @@ namespace Chatly.Controllers
                 }
             }
             base.Dispose(disposing);
+        }
+
+        public static List<CodeViewModel> CastToCodeViewModel(Codes[] codes)
+        {
+            List<CodeViewModel> listCodes = new List<CodeViewModel>();
+            foreach(var item in codes)
+            {
+                CodeViewModel code = new CodeViewModel();
+                code.Code = item.PinCode;
+                code.Id = item.Id;
+                listCodes.Add(code);
+            }
+            return listCodes;
         }
     }
 }

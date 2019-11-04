@@ -10,6 +10,7 @@ namespace Chatly.Models
     {
         public int Id { get; set; }
         
+        [Display(Name = "Code")]
         public string Code { get; set; }
 
     }

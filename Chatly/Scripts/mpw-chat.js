@@ -30,10 +30,13 @@
                     mpwchat.log.write("[InfoServ Chat] Connected to Chat Server");
                     //Connect Request
                     var userName = document.getElementById("txbUserName").value;
+                    var select = document.getElementById('ddl1')
+                    var roomCode = select.options[select.selectedIndex].text;
                     if (!userName) {
                         mpwchat.log.write("[InfoServ Chat]{Error} Invalid Username");
                     } else {
                         mpwchat.log.write("[InfoServ Chat] Joining as " + userName);
+                        mpwchat.log.write("[InfoServ Chat] Enter room : " + roomCode);
                         gHub.invoke('userInformation', userName)
                             .done(function () {
                                 //Request Sent
@@ -62,9 +65,11 @@
     //Connect Button
     $('#btnSend').click(function () {
         if (joinedChat) {
-            //if (document.getElementById("txbMessage").value.length > 0) {
+            var userName = document.getElementById("txbUserName").value;
             let val = document.getElementById("txbMessage").value;
-            AddChatMessage(val);
+            var select = document.getElementById('ddl1')
+            var roomCode = select.options[select.selectedIndex].text;
+            AddChatMessage(userName, val, roomCode);
             gHub.invoke('messageFromUser', document.getElementById("txbMessage").value)
                 .done(function () {
                     //Request Sent
@@ -139,11 +144,15 @@
         }
     });
 
-    function AddChatMessage(message) {
+    function AddChatMessage(user, message, roomCode) {
         $.ajax({
             type:"POST",
             url: 'AddMessage',
-            data: { message: message }
+            data: {
+                user: user,
+                message: message,
+                roomCode: roomCode
+            }
         })
     }
 

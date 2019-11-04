@@ -44,11 +44,7 @@ namespace ChatlyServices
         [OperationContract]
         bool UserExists(int userId);
         [OperationContract]
-        bool Save();
-
-        // TODO: Add your service operations here
+        IEnumerable<Users> GetUsersList();
     }
 
-
-  
 }

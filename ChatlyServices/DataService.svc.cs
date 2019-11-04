@@ -91,10 +91,11 @@ namespace ChatlyServices
         {
             return userRepository.UserExists(userId);
         }
-        public bool Save()
+        public IEnumerable<Users> GetUsersList()
         {
-            return userRepository.Save();
+            return userRepository.GetUsersList();
         }
+
         #endregion
 
     }

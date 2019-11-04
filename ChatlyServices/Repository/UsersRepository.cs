@@ -80,11 +80,10 @@ namespace ChatlyServices
             return context.Users.Any(u => u.Id == userid);
         }
 
-        public bool Save()
+        public IEnumerable<Users> GetUsersList()
         {
-            return (context.SaveChanges() >= 0);
+            return context.Users.ToList();
         }
-
         private static bool VerifyPasswordHash(string password, byte[] storedHash, byte[] storedSalt)
         {
             if (password == null)

@@ -91,11 +91,11 @@
   <wsdl:message name="IDataService_UserExists_OutputMessage">
     <wsdl:part name="parameters" element="tns:UserExistsResponse" />
   </wsdl:message>
-  <wsdl:message name="IDataService_Save_InputMessage">
-    <wsdl:part name="parameters" element="tns:Save" />
+  <wsdl:message name="IDataService_GetUsersList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersList" />
   </wsdl:message>
-  <wsdl:message name="IDataService_Save_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SaveResponse" />
+  <wsdl:message name="IDataService_GetUsersList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersListResponse" />
   </wsdl:message>
   <wsdl:portType name="IDataService">
     <wsdl:operation name="GetMessage">
@@ -154,9 +154,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDataService/UserExists" message="tns:IDataService_UserExists_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDataService/UserExistsResponse" message="tns:IDataService_UserExists_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Save">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/Save" message="tns:IDataService_Save_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/SaveResponse" message="tns:IDataService_Save_OutputMessage" />
+    <wsdl:operation name="GetUsersList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetUsersList" message="tns:IDataService_GetUsersList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetUsersListResponse" message="tns:IDataService_GetUsersList_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDataService" type="tns:IDataService">
@@ -287,8 +287,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Save">
-      <soap:operation soapAction="http://tempuri.org/IDataService/Save" style="document" />
+    <wsdl:operation name="GetUsersList">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetUsersList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

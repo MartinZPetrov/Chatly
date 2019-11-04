@@ -181,15 +181,15 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Save">
+  <xs:element name="GetUsersList">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="SaveResponse">
+  <xs:element name="GetUsersListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="SaveResult" type="xs:boolean" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ChatlyServices" minOccurs="0" name="GetUsersListResult" nillable="true" type="q14:ArrayOfUsers" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

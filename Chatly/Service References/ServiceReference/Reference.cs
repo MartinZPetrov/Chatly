@@ -428,11 +428,11 @@ namespace Chatly.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/UserExists", ReplyAction="http://tempuri.org/IDataService/UserExistsResponse")]
         System.Threading.Tasks.Task<bool> UserExistsAsync(int userId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/Save", ReplyAction="http://tempuri.org/IDataService/SaveResponse")]
-        bool Save();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUsersList", ReplyAction="http://tempuri.org/IDataService/GetUsersListResponse")]
+        Chatly.ServiceReference.Users[] GetUsersList();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/Save", ReplyAction="http://tempuri.org/IDataService/SaveResponse")]
-        System.Threading.Tasks.Task<bool> SaveAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUsersList", ReplyAction="http://tempuri.org/IDataService/GetUsersListResponse")]
+        System.Threading.Tasks.Task<Chatly.ServiceReference.Users[]> GetUsersListAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -574,12 +574,12 @@ namespace Chatly.ServiceReference {
             return base.Channel.UserExistsAsync(userId);
         }
         
-        public bool Save() {
-            return base.Channel.Save();
+        public Chatly.ServiceReference.Users[] GetUsersList() {
+            return base.Channel.GetUsersList();
         }
         
-        public System.Threading.Tasks.Task<bool> SaveAsync() {
-            return base.Channel.SaveAsync();
+        public System.Threading.Tasks.Task<Chatly.ServiceReference.Users[]> GetUsersListAsync() {
+            return base.Channel.GetUsersListAsync();
         }
     }
 }

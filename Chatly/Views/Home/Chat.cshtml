@@ -31,11 +31,11 @@
                             <input id="btnJoin" type="button" class="btn btn-primary" value="Join" /><br />
                         </div>
                     </div>
+
                     <div class="col-md-4">
-                        <label for="txPinCode">Room Code:</label>
-                        <div class="d-flex">
-                            <input type="text" class="form-control ml-1" id="txPinCode" placeholder="code" value="@Model.GameRoomCode">
-                        </div>
+                        @Html.LabelFor(m => m.CodeId)
+                        @Html.DropDownListFor(m => m.CodeId, new SelectList(Model.Codes, "Id", "Code"), new { @class = "form-control", id = "ddl1" })
+                        @Html.ValidationMessageFor(m => m.CodeId)
                     </div>
                 </div>
                 <textarea id="txaChat" rows="1" readonly="readonly"></textarea>
@@ -61,7 +61,16 @@
     <script>
         $(document).ready(function () {
             $("#btnJoin").click();
+
+            $('#txbMessage').on("keypress", function (e) {
+                var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+                if (key == 13) {
+                    $("#btnSend").click();
+                }
+            });
+            $("#ddl1").change(function () {
+                $("#btnJoin").click();
+            });
         });
-    
     </script>
 }
