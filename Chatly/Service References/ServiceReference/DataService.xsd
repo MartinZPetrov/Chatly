@@ -63,64 +63,64 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetPin">
+  <xs:element name="GetCode">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="pinId" type="xs:int" />
+        <xs:element minOccurs="0" name="codeId" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetPinResponse">
+  <xs:element name="GetCodeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ChatlyServices" minOccurs="0" name="GetPinResult" nillable="true" type="q6:Pins" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ChatlyServices" minOccurs="0" name="GetCodeResult" nillable="true" type="q6:Codes" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetPinsList">
+  <xs:element name="GetCodesList">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetPinsListResponse">
+  <xs:element name="GetCodesListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ChatlyServices" minOccurs="0" name="GetPinsListResult" nillable="true" type="q7:ArrayOfPins" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ChatlyServices" minOccurs="0" name="GetCodesListResult" nillable="true" type="q7:ArrayOfCodes" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddPin">
+  <xs:element name="AddCode">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ChatlyServices" minOccurs="0" name="pin" nillable="true" type="q8:Pins" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ChatlyServices" minOccurs="0" name="code" nillable="true" type="q8:Codes" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddPinResponse">
+  <xs:element name="AddCodeResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdatePin">
+  <xs:element name="UpdateCode">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ChatlyServices" minOccurs="0" name="pin" nillable="true" type="q9:Pins" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ChatlyServices" minOccurs="0" name="code" nillable="true" type="q9:Codes" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdatePinResponse">
+  <xs:element name="UpdateCodeResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeletePin">
+  <xs:element name="DeleteCode">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ChatlyServices" minOccurs="0" name="pin" nillable="true" type="q10:Pins" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ChatlyServices" minOccurs="0" name="code" nillable="true" type="q10:Codes" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeletePinResponse">
+  <xs:element name="DeleteCodeResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

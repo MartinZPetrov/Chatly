@@ -25,15 +25,15 @@ namespace ChatlyServices
         void DeleteMessage(Messages message);
         [OperationContract]
         //PINS
-        Pins GetPin(int pinId);
+        Codes GetCode(int codeId);
         [OperationContract]
-        IEnumerable<Pins> GetPinsList();
+        IEnumerable<Codes> GetCodesList();
         [OperationContract]
-        void AddPin(Pins pin);
+        void AddCode(Codes code);
         [OperationContract]
-        void UpdatePin(Pins pin);
+        void UpdateCode(Codes code);
         [OperationContract]
-        void DeletePin(Pins pin);
+        void DeleteCode(Codes code);
         //USERS
         [OperationContract]
         Users Login(string username, string password);

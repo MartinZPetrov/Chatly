@@ -5,8 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="478185dbde934288bcbc8539c9f6a7ff" Name="Diagram1">
+        <EntityTypeShape EntityType="ChatlyModel.Codes" Width="1.5" PointX="0.75" PointY="1.25" />
         <EntityTypeShape EntityType="ChatlyModel.Messages" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="ChatlyModel.Pins" Width="1.5" PointX="0.75" PointY="1.25" />
         <EntityTypeShape EntityType="ChatlyModel.Users" Width="1.5" PointX="0.75" PointY="5" />
         <AssociationConnector Association="ChatlyModel.FK_Messages_Pin" />
         <AssociationConnector Association="ChatlyModel.FK_Messages_Users" />

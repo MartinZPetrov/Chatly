@@ -23,6 +23,9 @@ namespace Chatly.ServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Chatly.ServiceReference.Codes CodesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -30,9 +33,6 @@ namespace Chatly.ServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> PinIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Chatly.ServiceReference.Pins PinsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> UserIdField;
@@ -47,6 +47,19 @@ namespace Chatly.ServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Chatly.ServiceReference.Codes Codes {
+            get {
+                return this.CodesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodesField, value) != true)) {
+                    this.CodesField = value;
+                    this.RaisePropertyChanged("Codes");
+                }
             }
         }
         
@@ -90,19 +103,6 @@ namespace Chatly.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Chatly.ServiceReference.Pins Pins {
-            get {
-                return this.PinsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PinsField, value) != true)) {
-                    this.PinsField = value;
-                    this.RaisePropertyChanged("Pins");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> UserId {
             get {
                 return this.UserIdField;
@@ -140,9 +140,9 @@ namespace Chatly.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Pins", Namespace="http://schemas.datacontract.org/2004/07/ChatlyServices")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Codes", Namespace="http://schemas.datacontract.org/2004/07/ChatlyServices")]
     [System.SerializableAttribute()]
-    public partial class Pins : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Codes : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -374,35 +374,35 @@ namespace Chatly.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/DeleteMessage", ReplyAction="http://tempuri.org/IDataService/DeleteMessageResponse")]
         System.Threading.Tasks.Task DeleteMessageAsync(Chatly.ServiceReference.Messages message);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetPin", ReplyAction="http://tempuri.org/IDataService/GetPinResponse")]
-        Chatly.ServiceReference.Pins GetPin(int pinId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetCode", ReplyAction="http://tempuri.org/IDataService/GetCodeResponse")]
+        Chatly.ServiceReference.Codes GetCode(int codeId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetPin", ReplyAction="http://tempuri.org/IDataService/GetPinResponse")]
-        System.Threading.Tasks.Task<Chatly.ServiceReference.Pins> GetPinAsync(int pinId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetCode", ReplyAction="http://tempuri.org/IDataService/GetCodeResponse")]
+        System.Threading.Tasks.Task<Chatly.ServiceReference.Codes> GetCodeAsync(int codeId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetPinsList", ReplyAction="http://tempuri.org/IDataService/GetPinsListResponse")]
-        Chatly.ServiceReference.Pins[] GetPinsList();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetCodesList", ReplyAction="http://tempuri.org/IDataService/GetCodesListResponse")]
+        Chatly.ServiceReference.Codes[] GetCodesList();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetPinsList", ReplyAction="http://tempuri.org/IDataService/GetPinsListResponse")]
-        System.Threading.Tasks.Task<Chatly.ServiceReference.Pins[]> GetPinsListAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetCodesList", ReplyAction="http://tempuri.org/IDataService/GetCodesListResponse")]
+        System.Threading.Tasks.Task<Chatly.ServiceReference.Codes[]> GetCodesListAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/AddPin", ReplyAction="http://tempuri.org/IDataService/AddPinResponse")]
-        void AddPin(Chatly.ServiceReference.Pins pin);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/AddCode", ReplyAction="http://tempuri.org/IDataService/AddCodeResponse")]
+        void AddCode(Chatly.ServiceReference.Codes code);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/AddPin", ReplyAction="http://tempuri.org/IDataService/AddPinResponse")]
-        System.Threading.Tasks.Task AddPinAsync(Chatly.ServiceReference.Pins pin);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/AddCode", ReplyAction="http://tempuri.org/IDataService/AddCodeResponse")]
+        System.Threading.Tasks.Task AddCodeAsync(Chatly.ServiceReference.Codes code);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/UpdatePin", ReplyAction="http://tempuri.org/IDataService/UpdatePinResponse")]
-        void UpdatePin(Chatly.ServiceReference.Pins pin);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/UpdateCode", ReplyAction="http://tempuri.org/IDataService/UpdateCodeResponse")]
+        void UpdateCode(Chatly.ServiceReference.Codes code);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/UpdatePin", ReplyAction="http://tempuri.org/IDataService/UpdatePinResponse")]
-        System.Threading.Tasks.Task UpdatePinAsync(Chatly.ServiceReference.Pins pin);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/UpdateCode", ReplyAction="http://tempuri.org/IDataService/UpdateCodeResponse")]
+        System.Threading.Tasks.Task UpdateCodeAsync(Chatly.ServiceReference.Codes code);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/DeletePin", ReplyAction="http://tempuri.org/IDataService/DeletePinResponse")]
-        void DeletePin(Chatly.ServiceReference.Pins pin);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/DeleteCode", ReplyAction="http://tempuri.org/IDataService/DeleteCodeResponse")]
+        void DeleteCode(Chatly.ServiceReference.Codes code);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/DeletePin", ReplyAction="http://tempuri.org/IDataService/DeletePinResponse")]
-        System.Threading.Tasks.Task DeletePinAsync(Chatly.ServiceReference.Pins pin);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/DeleteCode", ReplyAction="http://tempuri.org/IDataService/DeleteCodeResponse")]
+        System.Threading.Tasks.Task DeleteCodeAsync(Chatly.ServiceReference.Codes code);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/Login", ReplyAction="http://tempuri.org/IDataService/LoginResponse")]
         Chatly.ServiceReference.Users Login(string username, string password);
@@ -502,44 +502,44 @@ namespace Chatly.ServiceReference {
             return base.Channel.DeleteMessageAsync(message);
         }
         
-        public Chatly.ServiceReference.Pins GetPin(int pinId) {
-            return base.Channel.GetPin(pinId);
+        public Chatly.ServiceReference.Codes GetCode(int codeId) {
+            return base.Channel.GetCode(codeId);
         }
         
-        public System.Threading.Tasks.Task<Chatly.ServiceReference.Pins> GetPinAsync(int pinId) {
-            return base.Channel.GetPinAsync(pinId);
+        public System.Threading.Tasks.Task<Chatly.ServiceReference.Codes> GetCodeAsync(int codeId) {
+            return base.Channel.GetCodeAsync(codeId);
         }
         
-        public Chatly.ServiceReference.Pins[] GetPinsList() {
-            return base.Channel.GetPinsList();
+        public Chatly.ServiceReference.Codes[] GetCodesList() {
+            return base.Channel.GetCodesList();
         }
         
-        public System.Threading.Tasks.Task<Chatly.ServiceReference.Pins[]> GetPinsListAsync() {
-            return base.Channel.GetPinsListAsync();
+        public System.Threading.Tasks.Task<Chatly.ServiceReference.Codes[]> GetCodesListAsync() {
+            return base.Channel.GetCodesListAsync();
         }
         
-        public void AddPin(Chatly.ServiceReference.Pins pin) {
-            base.Channel.AddPin(pin);
+        public void AddCode(Chatly.ServiceReference.Codes code) {
+            base.Channel.AddCode(code);
         }
         
-        public System.Threading.Tasks.Task AddPinAsync(Chatly.ServiceReference.Pins pin) {
-            return base.Channel.AddPinAsync(pin);
+        public System.Threading.Tasks.Task AddCodeAsync(Chatly.ServiceReference.Codes code) {
+            return base.Channel.AddCodeAsync(code);
         }
         
-        public void UpdatePin(Chatly.ServiceReference.Pins pin) {
-            base.Channel.UpdatePin(pin);
+        public void UpdateCode(Chatly.ServiceReference.Codes code) {
+            base.Channel.UpdateCode(code);
         }
         
-        public System.Threading.Tasks.Task UpdatePinAsync(Chatly.ServiceReference.Pins pin) {
-            return base.Channel.UpdatePinAsync(pin);
+        public System.Threading.Tasks.Task UpdateCodeAsync(Chatly.ServiceReference.Codes code) {
+            return base.Channel.UpdateCodeAsync(code);
         }
         
-        public void DeletePin(Chatly.ServiceReference.Pins pin) {
-            base.Channel.DeletePin(pin);
+        public void DeleteCode(Chatly.ServiceReference.Codes code) {
+            base.Channel.DeleteCode(code);
         }
         
-        public System.Threading.Tasks.Task DeletePinAsync(Chatly.ServiceReference.Pins pin) {
-            return base.Channel.DeletePinAsync(pin);
+        public System.Threading.Tasks.Task DeleteCodeAsync(Chatly.ServiceReference.Codes code) {
+            return base.Channel.DeleteCodeAsync(code);
         }
         
         public Chatly.ServiceReference.Users Login(string username, string password) {

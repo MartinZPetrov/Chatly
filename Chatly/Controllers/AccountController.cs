@@ -86,7 +86,6 @@ namespace Chatly.Controllers
                 Session["user"] = result;
                 Session["username"] = result.UserName;
                 return RedirectToAction("Index", "Home");
-                //return View(model);
             }
             else
             {

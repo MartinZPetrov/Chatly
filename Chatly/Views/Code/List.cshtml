@@ -1,0 +1,74 @@
+﻿@model  IEnumerable<Chatly.Models.CodeViewModel>
+@{
+    Layout = null;
+}
+
+@{
+    ViewBag.Title = "Codes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p class="my-2">
+    @Html.ActionLink("New Code", "New", "Code", null, new { @class = "btn btn-primary" })
+</p>
+<div>
+    <i class="fas fa-heart"></i>
+</div>
+
+<table id="codes" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var table = $("#codes").DataTable({
+                bAutoWidth: false,
+                bSort: true,
+                ajax: {
+                    url: "code/getcodes",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "Code",
+                        render: function (data, type, code) {
+                            return "<a href='/code/edit/" + code.Id + "'>" + code.Code + "</a>";
+                        }
+                    },
+                    {
+                        data: "Id",
+                        render: function (data) {
+                            return "<button class='btn-link js-delete' data-movie-id=" + data + ">Delete</button>";
+                        }
+                    }
+                ],
+            });
+
+            $(table.table().container()).removeClass('form-inline');
+            
+
+            $("#codes").on("click", ".js-delete", function () {
+                var button = $(this);
+
+                bootbox.confirm("Are you sure you want to delete this movie?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "code/delete/" + button.attr("data-movie-id"),
+                            method: "POST",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}

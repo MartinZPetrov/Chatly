@@ -19,7 +19,7 @@ namespace ChatlyServices
         public Nullable<int> PinId { get; set; }
         public Nullable<int> UserId { get; set; }
     
-        public virtual Pins Pins { get; set; }
+        public virtual Codes Codes { get; set; }
         public virtual Users Users { get; set; }
     }
 }

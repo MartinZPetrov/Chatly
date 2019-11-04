@@ -14,7 +14,7 @@ namespace ChatlyServices
     {
         
         private IMessageRepository messagesRepository = new MessagesRepository();
-        private IPinRepository pinRepository = new PinRepository();
+        private ICodeRepository codeRepository = new CodeRepository();
         private IUserRepository userRepository = new UsersRepository();
 
         #region Messages
@@ -44,30 +44,30 @@ namespace ChatlyServices
         }
         #endregion
 
-        #region Pin
-        public Pins GetPin(int pinId)
+        #region Codes
+        public Codes GetCode(int codeId)
         {
-            return pinRepository.GetPin(pinId);
+            return codeRepository.GetCode(codeId);
         }
 
-        public IEnumerable<Pins> GetPinsList()
+        public IEnumerable<Codes> GetCodesList()
         {
-            return pinRepository.GetPinList();
+            return codeRepository.GetCodeList();
         }
 
-        public void AddPin(Pins pin)
+        public void AddCode(Codes code)
         {
-            pinRepository.AddPin(pin);
+            codeRepository.AddCode(code);
         }
 
-        public void UpdatePin(Pins pin)
+        public void UpdateCode(Codes code)
         {
-            pinRepository.UpdatePin(pin);
+            codeRepository.UpdateCode(code);
         }
 
-        public void DeletePin(Pins pin)
+        public void DeleteCode(Codes code)
         {
-            pinRepository.DeletePin(pin);
+            codeRepository.DeleteCode(code);
         }
         #endregion
 

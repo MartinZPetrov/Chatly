@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using Chatly.ServiceReference;
 using Chatly.Models;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace Chatly.Controllers
 {
@@ -17,10 +19,6 @@ namespace Chatly.Controllers
         }
         public ActionResult Index()
         {
-            //var msg = new Messages();
-            //msg.Message = "Test your skills";
-            //dataservice.AddMessage(msg);
-
             return View();
         }
 
@@ -31,10 +29,10 @@ namespace Chatly.Controllers
             var model = new ChatRoomViewModel()
             {
                 UserName = user.UserName,
-                GameRoomCode = "CHAT777"
+                GameRoomCode = "ABC777"
 
             };
-
+       
             return View(model);
         }
 
@@ -44,6 +42,19 @@ namespace Chatly.Controllers
 
             return View();
         }
+
+        public async Task<ActionResult> AddMessage(string message)
+        {
+            var usr = Session["user"] as Users;
+            var msg = new Messages();
+            msg.Message = message;
+            msg.UserId = usr.Id;
+            msg.PinId = 1;
+
+            await dataservice.AddMessageAsync(msg);
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
+
 
         public ActionResult Contact()
         {
@@ -64,3 +75,4 @@ namespace Chatly.Controllers
         }
     }
 }
+

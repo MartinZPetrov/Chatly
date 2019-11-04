@@ -37,35 +37,35 @@
   <wsdl:message name="IDataService_DeleteMessage_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteMessageResponse" />
   </wsdl:message>
-  <wsdl:message name="IDataService_GetPin_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetPin" />
+  <wsdl:message name="IDataService_GetCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCode" />
   </wsdl:message>
-  <wsdl:message name="IDataService_GetPin_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetPinResponse" />
+  <wsdl:message name="IDataService_GetCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeResponse" />
   </wsdl:message>
-  <wsdl:message name="IDataService_GetPinsList_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetPinsList" />
+  <wsdl:message name="IDataService_GetCodesList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodesList" />
   </wsdl:message>
-  <wsdl:message name="IDataService_GetPinsList_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetPinsListResponse" />
+  <wsdl:message name="IDataService_GetCodesList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodesListResponse" />
   </wsdl:message>
-  <wsdl:message name="IDataService_AddPin_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddPin" />
+  <wsdl:message name="IDataService_AddCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCode" />
   </wsdl:message>
-  <wsdl:message name="IDataService_AddPin_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddPinResponse" />
+  <wsdl:message name="IDataService_AddCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCodeResponse" />
   </wsdl:message>
-  <wsdl:message name="IDataService_UpdatePin_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdatePin" />
+  <wsdl:message name="IDataService_UpdateCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCode" />
   </wsdl:message>
-  <wsdl:message name="IDataService_UpdatePin_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdatePinResponse" />
+  <wsdl:message name="IDataService_UpdateCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCodeResponse" />
   </wsdl:message>
-  <wsdl:message name="IDataService_DeletePin_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeletePin" />
+  <wsdl:message name="IDataService_DeleteCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCode" />
   </wsdl:message>
-  <wsdl:message name="IDataService_DeletePin_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeletePinResponse" />
+  <wsdl:message name="IDataService_DeleteCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCodeResponse" />
   </wsdl:message>
   <wsdl:message name="IDataService_Login_InputMessage">
     <wsdl:part name="parameters" element="tns:Login" />
@@ -118,25 +118,25 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDataService/DeleteMessage" message="tns:IDataService_DeleteMessage_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDataService/DeleteMessageResponse" message="tns:IDataService_DeleteMessage_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetPin">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetPin" message="tns:IDataService_GetPin_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetPinResponse" message="tns:IDataService_GetPin_OutputMessage" />
+    <wsdl:operation name="GetCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetCode" message="tns:IDataService_GetCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetCodeResponse" message="tns:IDataService_GetCode_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetPinsList">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetPinsList" message="tns:IDataService_GetPinsList_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetPinsListResponse" message="tns:IDataService_GetPinsList_OutputMessage" />
+    <wsdl:operation name="GetCodesList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetCodesList" message="tns:IDataService_GetCodesList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetCodesListResponse" message="tns:IDataService_GetCodesList_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddPin">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/AddPin" message="tns:IDataService_AddPin_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/AddPinResponse" message="tns:IDataService_AddPin_OutputMessage" />
+    <wsdl:operation name="AddCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/AddCode" message="tns:IDataService_AddCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/AddCodeResponse" message="tns:IDataService_AddCode_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UpdatePin">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/UpdatePin" message="tns:IDataService_UpdatePin_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/UpdatePinResponse" message="tns:IDataService_UpdatePin_OutputMessage" />
+    <wsdl:operation name="UpdateCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/UpdateCode" message="tns:IDataService_UpdateCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/UpdateCodeResponse" message="tns:IDataService_UpdateCode_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeletePin">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/DeletePin" message="tns:IDataService_DeletePin_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/DeletePinResponse" message="tns:IDataService_DeletePin_OutputMessage" />
+    <wsdl:operation name="DeleteCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/DeleteCode" message="tns:IDataService_DeleteCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/DeleteCodeResponse" message="tns:IDataService_DeleteCode_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IDataService/Login" message="tns:IDataService_Login_InputMessage" />
@@ -206,8 +206,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetPin">
-      <soap:operation soapAction="http://tempuri.org/IDataService/GetPin" style="document" />
+    <wsdl:operation name="GetCode">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetCode" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -215,8 +215,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetPinsList">
-      <soap:operation soapAction="http://tempuri.org/IDataService/GetPinsList" style="document" />
+    <wsdl:operation name="GetCodesList">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetCodesList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -224,8 +224,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddPin">
-      <soap:operation soapAction="http://tempuri.org/IDataService/AddPin" style="document" />
+    <wsdl:operation name="AddCode">
+      <soap:operation soapAction="http://tempuri.org/IDataService/AddCode" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -233,8 +233,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdatePin">
-      <soap:operation soapAction="http://tempuri.org/IDataService/UpdatePin" style="document" />
+    <wsdl:operation name="UpdateCode">
+      <soap:operation soapAction="http://tempuri.org/IDataService/UpdateCode" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -242,8 +242,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeletePin">
-      <soap:operation soapAction="http://tempuri.org/IDataService/DeletePin" style="document" />
+    <wsdl:operation name="DeleteCode">
+      <soap:operation soapAction="http://tempuri.org/IDataService/DeleteCode" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
