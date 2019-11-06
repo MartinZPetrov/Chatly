@@ -15,7 +15,7 @@ namespace Chatly.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Messages", Namespace="http://schemas.datacontract.org/2004/07/ChatlyServices")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Messages", Namespace="http://schemas.datacontract.org/2004/07/ChatlyServices", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class Messages : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -140,7 +140,7 @@ namespace Chatly.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Codes", Namespace="http://schemas.datacontract.org/2004/07/ChatlyServices")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Codes", Namespace="http://schemas.datacontract.org/2004/07/ChatlyServices", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class Codes : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -217,7 +217,7 @@ namespace Chatly.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Users", Namespace="http://schemas.datacontract.org/2004/07/ChatlyServices")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Users", Namespace="http://schemas.datacontract.org/2004/07/ChatlyServices", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class Users : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         

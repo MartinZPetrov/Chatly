@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace ChatlyServices
 {
@@ -35,7 +36,7 @@ namespace ChatlyServices
 
       public IEnumerable<Messages> GetMessagesList()
       {
-          return context.Messages.ToList();
+          return context.Messages.Include(e=>e.Users).Include(e=>e.Codes).ToList();
       }
 
       public void AddMessage(Messages message)
@@ -54,7 +55,8 @@ namespace ChatlyServices
       public void DeleteMessage(Messages message)
       {
           Messages existingMessages = GetMessage(message.Id);
-          context.Messages.Remove(message);
+          context.Entry(existingMessages).State = EntityState.Deleted;
+          //context.Messages.Remove(message);
           context.SaveChanges(); //Persist changes to DB
       }
 

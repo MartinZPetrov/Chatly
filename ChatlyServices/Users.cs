@@ -11,7 +11,9 @@ namespace ChatlyServices
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract(IsReference = true)]
     public partial class Users
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,12 +22,17 @@ namespace ChatlyServices
             this.Messages = new HashSet<Messages>();
         }
     
+        [DataMember]
         public int Id { get; set; }
+        [DataMember]
         public string Email { get; set; }
+        [DataMember]
         public byte[] PasswordHash { get; set; }
+        [DataMember]
         public string UserName { get; set; }
+        [DataMember]
         public byte[] PasswordSalt { get; set; }
-    
+        [DataMember]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Messages> Messages { get; set; }
     }

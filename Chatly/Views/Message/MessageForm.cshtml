@@ -1,0 +1,51 @@
+﻿@model Chatly.Models.ChatRoomViewModel
+@{
+    ViewBag.Title = "MessageForm";
+}
+
+<style type="text/css">
+    #txaChat {
+        height: 400px;
+        width: 600px;
+    }
+</style>
+<h1 class="text-center mt-2">User Messages</h1>
+<div class="row">
+    <div class="col-md-12">
+        <div class="d-flex justify-content-center">
+            @using (Html.BeginForm("Save", "Message", FormMethod.Post, new { @class = "form-group", role = "form" }))
+            {
+                <div class="row">
+                    <div class="col-md-8">
+                        <label for="txbUserName">Username:</label>
+                        <div class="form-group d-flex">
+                            <input type="text" class="form-control" id="txbUserName" placeholder="name" value=@Model.UserName>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        @Html.LabelFor(m => m.CodeId)
+                        @Html.DropDownListFor(m => m.CodeId, new SelectList(Model.Codes, "Id", "Code"), new { @class = "form-control", id = "ddl1" })
+                        @Html.ValidationMessageFor(m => m.CodeId)
+                    </div>
+                </div>
+                @Html.TextAreaFor(model => model.Message, new { @class = "form-control", row = 1, id = "txaChat" })
+                <br />
+                <div class="control-form d-flex mt-3">
+                    <input id="btnSave" type="submit" class="ml-1 form-control btn btn-primary w-25" value="Save" />
+                </div>
+                <p class="mt-2">
+                    @Html.ActionLink("Back", "Index")
+                </p>
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(m => m.MessageId)
+            }
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

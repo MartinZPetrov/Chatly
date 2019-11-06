@@ -11,15 +11,22 @@ namespace ChatlyServices
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract(IsReference = true)]
     public partial class Messages
     {
+        [DataMember]
         public int Id { get; set; }
+        [DataMember]
         public string Message { get; set; }
+        [DataMember]
         public Nullable<int> PinId { get; set; }
+        [DataMember]
         public Nullable<int> UserId { get; set; }
-    
+        [DataMember]
         public virtual Codes Codes { get; set; }
+        [DataMember]
         public virtual Users Users { get; set; }
     }
 }

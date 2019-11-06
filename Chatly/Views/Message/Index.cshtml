@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Chatly.Models.ChatRoomViewModel>
+
+@{
+    ViewBag.Title = "Messages";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center mt-2">Messages</h1>
+<table id="messages" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>User</th>
+            <th>Message</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var table = $("#messages").DataTable({
+                bAutoWidth: false,
+                bSort: true,
+                ajax: {
+                    url: "message/GetMessages",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "RoomCode"
+                    },
+                    {
+                        data: "UserName"
+                    },
+                    {
+                        data: "Message",
+                        render: function (data, type, message) {
+                            return "<a href='/message/edit/" + message.MessageId + "'>" + message.Message + "</a>";
+                        }
+                    },
+                    {
+                        data: "MessageId",
+                        render: function (data) {
+                            return "<button class='btn-link js-delete' data-message-id=" + data + ">Delete</button>";
+                        }
+                    },
+                ],
+            });
+
+            $(table.table().container()).removeClass('form-inline');
+
+
+            $("#messages").on("click", ".js-delete", function () {
+                var button = $(this);
+
+                bootbox.confirm("Are you sure you want to delete this message?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "message/delete/" + button.attr("data-message-id"),
+                            method: "POST",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+            });
+            //$("#messages").on("click", ".js-edit", function () {
+            //    var button = $(this);
+
+            //    bootbox.confirm("Are you sure you want to delete this message?", function (result) {
+            //        if (result) {
+            //            $.ajax({
+            //                url: "message/edit/" + button.attr("data-message-id"),
+            //                method: "POST",
+            //            });
+            //        }
+            //    });
+            //});
+        });
+    </script>
+}
+

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ChatlyServices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ChatlyServices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ChatlyServices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ChatlyServices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2341/DataService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="Messages">
     <xs:sequence>
       <xs:element minOccurs="0" name="Codes" nillable="true" type="tns:Codes" />
@@ -9,6 +10,8 @@
       <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="Users" nillable="true" type="tns:Users" />
     </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="Messages" nillable="true" type="tns:Messages" />
   <xs:complexType name="Codes">
@@ -17,6 +20,8 @@
       <xs:element minOccurs="0" name="Messages" nillable="true" type="tns:ArrayOfMessages" />
       <xs:element minOccurs="0" name="PinCode" nillable="true" type="xs:string" />
     </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="Codes" nillable="true" type="tns:Codes" />
   <xs:complexType name="ArrayOfMessages">
@@ -34,6 +39,8 @@
       <xs:element minOccurs="0" name="PasswordSalt" nillable="true" type="xs:base64Binary" />
       <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
     </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="Users" nillable="true" type="tns:Users" />
   <xs:complexType name="ArrayOfCodes">
