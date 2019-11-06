@@ -46,9 +46,19 @@
                         <textarea id="txaUsers" name="S2" class="w-100" rows="20" readonly="readonly" ></textarea>
                     </div>
                 </div>
-                <div class="control-form d-flex mt-3">
-                    <input id="txbMessage" type="text" class="form-control" />
-                    <input id="btnSend" type="button" class="ml-1 form-control btn btn-primary w-25" value="Send" />
+                <div class="control-form mt-3 d-md-none d-flex">
+                    <div class="col-md-12">
+                        <input id="txbMessage" type="text" class="form-control" />
+                        <input id="btnSend" type="button" class="form-control mt-1 btn btn-primary" value="Send" />
+                    </div>
+                </div>
+                <div class="control-form d-sm-flex d-none mt-3">
+                    <div class="col-md-9">
+                        <input id="txbMessage" type="text" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                        <input id="btnSend" type="button" class="form-control mt-1 btn btn-primary" value="Send" />
+                    </div>
                 </div>
             </form>
         </div>

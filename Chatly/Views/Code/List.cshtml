@@ -11,9 +11,6 @@
 <p class="my-2">
     @Html.ActionLink("New Code", "New", "Code", null, new { @class = "btn btn-primary" })
 </p>
-<div>
-    <i class="fas fa-heart"></i>
-</div>
 
 <table id="codes" class="table table-bordered table-hover">
     <thead>
@@ -52,6 +49,7 @@
             });
 
             $(table.table().container()).removeClass('form-inline');
+            $(".body-content").addClass("d-block");
             
 
             $("#codes").on("click", ".js-delete", function () {
