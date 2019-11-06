@@ -63,17 +63,40 @@
 
 
     //Connect Button
-    $('#btnSend').click(function () {
+    $('#btnSendOne').click(function () {
         if (joinedChat) {
             var userName = document.getElementById("txbUserName").value;
-            let val = document.getElementById("txbMessage").value;
+            var val = document.getElementById("txbMessageOne").value;
             var select = document.getElementById('ddl1')
             var roomCode = select.options[select.selectedIndex].text;
             AddChatMessage(userName, val, roomCode);
-            gHub.invoke('messageFromUser', document.getElementById("txbMessage").value)
+            gHub.invoke('messageFromUser', document.getElementById("txbMessageOne").value)
                 .done(function () {
                     //Request Sent
-                    document.getElementById("txbMessage").value = "";
+                    document.getElementById("txbMessageOne").value = "";
+                })
+                .fail(function (error) {
+                    //Request Failed
+                    mpwchat.log.write("[InfoServ Chat]{Error} " + error.message);
+                    conn.stop();
+                    joinedChat = false;
+                });
+            //}
+        }
+    });
+
+    //Connect Button
+    $('#btnSendTwo').click(function () {
+        if (joinedChat) {
+            var userName = document.getElementById("txbUserName").value;
+            var val = document.getElementById("txbMessageTwo").value;
+            var select = document.getElementById('ddl1')
+            var roomCode = select.options[select.selectedIndex].text;
+            AddChatMessage(userName, val, roomCode);
+            gHub.invoke('messageFromUser', document.getElementById("txbMessageTwo").value)
+                .done(function () {
+                    //Request Sent
+                    document.getElementById("txbMessageTwo").value = "";
                 })
                 .fail(function (error) {
                     //Request Failed

@@ -1,5 +1,6 @@
-﻿body {
-\
+﻿body { 
+    position: relative;
+    min-height: 100vh;
     background: #1c92d2; /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #f2fcfe, #1c92d2); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #f2fcfe, #1c92d2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -7,12 +8,7 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    /*padding-left: 15px;
-    padding-right: 15px;*/
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 90vh;
+    padding-bottom:2.5rem;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -280,6 +276,12 @@ nav a {
     border-bottom-width: 1px;
     border-left-width: 1px;
 }
+footer {
+    position: absolute;
+    bottom: 0;
+    height: 2.5rem;
+}
+
 
 @media screen and (max-width: 480px) {
     /*.body-content {
@@ -289,10 +291,10 @@ nav a {
         height: 89vh;
     }*/
     .body-content {
-        display: block;
-        flex-direction: column;
-        justify-content: center;
-        height: 90vh;
+        /*display: block;*/
+        /*flex-direction: column;*/
+        /*justify-content: center;*/
+        /*height: 90vh;*/
     }
 
     body {
