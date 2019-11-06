@@ -1,6 +1,7 @@
 ﻿@model Chatly.Models.CodeViewModel
 @{
     ViewBag.Title = "Codes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>Room Code</h2>
 @using (Html.BeginForm("Save", "Code", FormMethod.Post,  new { @class = "form-group", role = "form" }))
