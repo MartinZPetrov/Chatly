@@ -10,8 +10,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Code)
         <div>
-            
-            @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
+            @Html.TextAreaFor(m => m.Code, new { @class = "form-control", rows = 10 })
             @Html.ValidationMessageFor(m => m.Code)
         </div>
     </div>
