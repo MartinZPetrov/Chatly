@@ -5,11 +5,20 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="478185dbde934288bcbc8539c9f6a7ff" Name="Diagram1">
-        <EntityTypeShape EntityType="ChatlyModel.Codes" Width="1.5" PointX="0.75" PointY="1.25" />
-        <EntityTypeShape EntityType="ChatlyModel.Messages" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="ChatlyModel.Users" Width="1.5" PointX="0.75" PointY="5" />
-        <AssociationConnector Association="ChatlyModel.FK_Messages_Pin" />
-        <AssociationConnector Association="ChatlyModel.FK_Messages_Users" />
+        <EntityTypeShape EntityType="ChatlyModel.AspNetRoleClaims" Width="1.5" PointX="3" PointY="10" />
+        <EntityTypeShape EntityType="ChatlyModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="6.875" />
+        <EntityTypeShape EntityType="ChatlyModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="10.125" />
+        <EntityTypeShape EntityType="ChatlyModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="7.25" />
+        <EntityTypeShape EntityType="ChatlyModel.AspNetUsers" Width="1.5" PointX="3" PointY="4" />
+        <EntityTypeShape EntityType="ChatlyModel.AspNetUserTokens" Width="1.5" PointX="7.75" PointY="1.875" />
+        <EntityTypeShape EntityType="ChatlyModel.Codes" Width="1.5" PointX="3" PointY="0.75" />
+        <AssociationConnector Association="ChatlyModel.FK_AspNetRoleClaims_AspNetRoles_RoleId" />
+        <AssociationConnector Association="ChatlyModel.FK_AspNetUserClaims_AspNetUsers_UserId" />
+        <AssociationConnector Association="ChatlyModel.FK_AspNetUserLogins_AspNetUsers_UserId" />
+        <AssociationConnector Association="ChatlyModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="ChatlyModel.Messages" Width="1.5" PointX="5.25" PointY="3.875" />
+        <AssociationConnector Association="ChatlyModel.FK_Messages_AspNetUsers" />
+        <AssociationConnector Association="ChatlyModel.FK_Messages_Codes" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

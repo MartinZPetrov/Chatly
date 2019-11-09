@@ -1,5 +1,5 @@
-﻿
-@if (Session["user"] != null)
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right w-100" }))
     {
@@ -9,7 +9,7 @@
         <ul class="navbar-nav ml-auto">
 
             <li class="ml-2">
-                @Html.ActionLink("Hello " + Session["username"] + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
             </li>
             <li><a href="javascript:document.getElementById('logoutForm').submit()" class="ml-2">Log off</a></li>
         </ul>

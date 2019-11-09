@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChatlyServices.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -16,8 +17,8 @@ namespace ChatlyServices
         
         private IMessageRepository messagesRepository = new MessagesRepository();
         private ICodeRepository codeRepository = new CodeRepository();
-        private IUserRepository userRepository = new UsersRepository();
-
+        private IUserRepository userRepositry = new UserRepository();
+ 
         #region Messages
         public Messages GetMessage(int bookmarkId)
         {
@@ -70,34 +71,11 @@ namespace ChatlyServices
         {
             codeRepository.DeleteCode(code);
         }
+
+        public IEnumerable<AspNetUsers> GetUserList()
+        {
+            return userRepositry.GetUsersList();
+        }
         #endregion
-
-        #region Users
-
-        public Users Login(string username, string password)
-        {
-            return userRepository.Authenticate(username, password);
-        }
-
-        public Users Create(Users user, string password)
-        {
-           return  userRepository.Create(user, password);
-        }
-
-        public void Delete(int id)
-        {
-            userRepository.Delete(id);
-        }
-        public bool UserExists(int userId)
-        {
-            return userRepository.UserExists(userId);
-        }
-        public IEnumerable<Users> GetUsersList()
-        {
-            return userRepository.GetUsersList();
-        }
-
-        #endregion
-
     }
 }

@@ -36,7 +36,7 @@ namespace ChatlyServices
 
       public IEnumerable<Messages> GetMessagesList()
       {
-          return context.Messages.Include(e=>e.Users).Include(e=>e.Codes).ToList();
+          return context.Messages.Include(e=>e.AspNetUsers).Include(e=>e.Codes).ToList();
       }
 
       public void AddMessage(Messages message)

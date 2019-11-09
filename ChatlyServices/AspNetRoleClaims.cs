@@ -11,22 +11,14 @@ namespace ChatlyServices
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
-
-    [DataContract(IsReference = true)]
-    public partial class Messages
+    
+    public partial class AspNetRoleClaims
     {
-        [DataMember]
         public int Id { get; set; }
-        [DataMember]
-        public string Message { get; set; }
-        [DataMember]
-        public Nullable<int> PinId { get; set; }
-        [DataMember]
-        public string UserId { get; set; }
-        [DataMember]
-        public virtual AspNetUsers AspNetUsers { get; set; }
-        [DataMember]
-        public virtual Codes Codes { get; set; }
+        public string ClaimType { get; set; }
+        public string ClaimValue { get; set; }
+        public string RoleId { get; set; }
+    
+        public virtual AspNetRoles AspNetRoles { get; set; }
     }
 }

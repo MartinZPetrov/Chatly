@@ -13,7 +13,6 @@ namespace ChatlyServices
     using System.Collections.Generic;
     using System.Runtime.Serialization;
 
-
     [DataContract(IsReference = true)]
     public partial class Codes
     {
@@ -23,12 +22,12 @@ namespace ChatlyServices
             this.Messages = new HashSet<Messages>();
         }
         [DataMember]
-    
         public int Id { get; set; }
         [DataMember]
         public string PinCode { get; set; }
-        [DataMember]
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [DataMember]
         public virtual ICollection<Messages> Messages { get; set; }
     }
 }

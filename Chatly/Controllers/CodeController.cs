@@ -1,5 +1,6 @@
 ﻿using Chatly.Models;
 using Chatly.ServiceReference;
+using ChatlyServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;

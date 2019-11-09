@@ -11,29 +11,24 @@ namespace ChatlyServices
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
-
-    [DataContract(IsReference = true)]
-    public partial class Users
+    
+    public partial class AspNetRoles
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Users()
+        public AspNetRoles()
         {
-            this.Messages = new HashSet<Messages>();
+            this.AspNetRoleClaims = new HashSet<AspNetRoleClaims>();
+            this.AspNetUsers = new HashSet<AspNetUsers>();
         }
     
-        [DataMember]
-        public int Id { get; set; }
-        [DataMember]
-        public string Email { get; set; }
-        [DataMember]
-        public byte[] PasswordHash { get; set; }
-        [DataMember]
-        public string UserName { get; set; }
-        [DataMember]
-        public byte[] PasswordSalt { get; set; }
-        [DataMember]
+        public string Id { get; set; }
+        public string ConcurrencyStamp { get; set; }
+        public string Name { get; set; }
+        public string NormalizedName { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Messages> Messages { get; set; }
+        public virtual ICollection<AspNetRoleClaims> AspNetRoleClaims { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AspNetUsers> AspNetUsers { get; set; }
     }
 }

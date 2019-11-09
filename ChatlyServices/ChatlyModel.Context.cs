@@ -12,24 +12,27 @@ namespace ChatlyServices
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
-
+    
     public partial class ChatlyEntities : DbContext
     {
         public ChatlyEntities()
             : base("name=ChatlyEntities")
         {
-
             this.Configuration.ProxyCreationEnabled = false;
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-        
+    
+        public virtual DbSet<AspNetRoleClaims> AspNetRoleClaims { get; set; }
+        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+        public virtual DbSet<AspNetUserTokens> AspNetUserTokens { get; set; }
         public virtual DbSet<Codes> Codes { get; set; }
         public virtual DbSet<Messages> Messages { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
     }
 }

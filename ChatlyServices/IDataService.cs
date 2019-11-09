@@ -34,17 +34,7 @@ namespace ChatlyServices
         void UpdateCode(Codes code);
         [OperationContract]
         void DeleteCode(Codes code);
-        //USERS
         [OperationContract]
-        Users Login(string username, string password);
-        [OperationContract]
-        Users Create(Users user, string password);
-        [OperationContract]
-        void Delete(int id);
-        [OperationContract]
-        bool UserExists(int userId);
-        [OperationContract]
-        IEnumerable<Users> GetUsersList();
+        IEnumerable<AspNetUsers> GetUserList();
     }
-
 }

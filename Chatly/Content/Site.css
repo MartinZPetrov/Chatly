@@ -271,6 +271,10 @@ nav a {
     color: #212529;
 }
 
+.paginate_button a {
+    color: #212529;
+}
+
 .table-bordered th, .table-bordered td, .table thead th, .table-bordered {
     border: 1px solid #212529;
     border-bottom-width: 1px;

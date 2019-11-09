@@ -67,35 +67,11 @@
   <wsdl:message name="IDataService_DeleteCode_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteCodeResponse" />
   </wsdl:message>
-  <wsdl:message name="IDataService_Login_InputMessage">
-    <wsdl:part name="parameters" element="tns:Login" />
+  <wsdl:message name="IDataService_GetUserList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserList" />
   </wsdl:message>
-  <wsdl:message name="IDataService_Login_OutputMessage">
-    <wsdl:part name="parameters" element="tns:LoginResponse" />
-  </wsdl:message>
-  <wsdl:message name="IDataService_Create_InputMessage">
-    <wsdl:part name="parameters" element="tns:Create" />
-  </wsdl:message>
-  <wsdl:message name="IDataService_Create_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CreateResponse" />
-  </wsdl:message>
-  <wsdl:message name="IDataService_Delete_InputMessage">
-    <wsdl:part name="parameters" element="tns:Delete" />
-  </wsdl:message>
-  <wsdl:message name="IDataService_Delete_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteResponse" />
-  </wsdl:message>
-  <wsdl:message name="IDataService_UserExists_InputMessage">
-    <wsdl:part name="parameters" element="tns:UserExists" />
-  </wsdl:message>
-  <wsdl:message name="IDataService_UserExists_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UserExistsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IDataService_GetUsersList_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetUsersList" />
-  </wsdl:message>
-  <wsdl:message name="IDataService_GetUsersList_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetUsersListResponse" />
+  <wsdl:message name="IDataService_GetUserList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserListResponse" />
   </wsdl:message>
   <wsdl:portType name="IDataService">
     <wsdl:operation name="GetMessage">
@@ -138,25 +114,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDataService/DeleteCode" message="tns:IDataService_DeleteCode_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDataService/DeleteCodeResponse" message="tns:IDataService_DeleteCode_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Login">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/Login" message="tns:IDataService_Login_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/LoginResponse" message="tns:IDataService_Login_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Create">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/Create" message="tns:IDataService_Create_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/CreateResponse" message="tns:IDataService_Create_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Delete">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/Delete" message="tns:IDataService_Delete_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/DeleteResponse" message="tns:IDataService_Delete_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UserExists">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/UserExists" message="tns:IDataService_UserExists_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/UserExistsResponse" message="tns:IDataService_UserExists_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetUsersList">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetUsersList" message="tns:IDataService_GetUsersList_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetUsersListResponse" message="tns:IDataService_GetUsersList_OutputMessage" />
+    <wsdl:operation name="GetUserList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetUserList" message="tns:IDataService_GetUserList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetUserListResponse" message="tns:IDataService_GetUserList_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDataService" type="tns:IDataService">
@@ -251,44 +211,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Login">
-      <soap:operation soapAction="http://tempuri.org/IDataService/Login" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Create">
-      <soap:operation soapAction="http://tempuri.org/IDataService/Create" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Delete">
-      <soap:operation soapAction="http://tempuri.org/IDataService/Delete" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UserExists">
-      <soap:operation soapAction="http://tempuri.org/IDataService/UserExists" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetUsersList">
-      <soap:operation soapAction="http://tempuri.org/IDataService/GetUsersList" style="document" />
+    <wsdl:operation name="GetUserList">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetUserList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

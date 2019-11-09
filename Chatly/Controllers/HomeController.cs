@@ -7,11 +7,18 @@ using Chatly.ServiceReference;
 using Chatly.Models;
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using ChatlyServices;
+using Microsoft.Owin.Security;
 
 namespace Chatly.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationUserManager _userManager;
+
+
         private DataServiceClient dataservice;
         public HomeController()
         {
@@ -22,11 +29,24 @@ namespace Chatly.Controllers
             return View();
         }
 
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+
+        [Authorize]
         public async Task<ActionResult> Chat()
         {
-            var user = Session["user"] as Users;
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
             var codes = await dataservice.GetCodesListAsync();
-            if (user == null || codes == null) return RedirectToAction("Index", "Home");
+            if (user == null || codes.Count() == 0) return RedirectToAction("Index", "Home");
 
             var res = CastToCodeViewModel(codes);
 
@@ -48,32 +68,16 @@ namespace Chatly.Controllers
             return View();
         }
 
+        [HttpPost]
         public async Task<ActionResult> AddMessage(string user, string message, string roomCode)
         {
-            var usersFromDB = await dataservice.GetUsersListAsync();
-            bool createNewuser = false;
-            var users = dataservice.GetCodesListAsync();
-            var usr = Session["user"] as Users;
-            if (user != usr.UserName) createNewuser = true;
-            Users newUser = null;
-            if (createNewuser)
-            {
-                newUser = usersFromDB.FirstOrDefault(e => e.UserName.ToLower().Trim() == user.ToLower().Trim());
-                if (newUser == null)
-                {
-                    var userToCreate = new Users();
-                    userToCreate.UserName = user;
-                    userToCreate.Email = user + "@yahoo.com";
-                    newUser = await dataservice.CreateAsync(userToCreate, user);
-                }
-            }
-
+            var userModel = await UserManager.FindByIdAsync(User.Identity.GetUserId());
             var codes = await dataservice.GetCodesListAsync();
             var code = codes.FirstOrDefault(e => e.PinCode == roomCode);
             var msg = new Messages();
             msg.Message = message;
-            int userId = 0;
-            userId = newUser != null ? newUser.Id : usr.Id;
+            string userId = string.Empty;
+            userId = userModel.Id;
             msg.UserId = userId;
             msg.PinId = code.Id;
 

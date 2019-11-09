@@ -3,17 +3,120 @@
   <xs:import schemaLocation="http://localhost:2341/DataService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="Messages">
     <xs:sequence>
+      <xs:element minOccurs="0" name="AspNetUsers" nillable="true" type="tns:AspNetUsers" />
       <xs:element minOccurs="0" name="Codes" nillable="true" type="tns:Codes" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PinId" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="Users" nillable="true" type="tns:Users" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
     </xs:sequence>
     <xs:attribute ref="ser:Id" />
     <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="Messages" nillable="true" type="tns:Messages" />
+  <xs:complexType name="AspNetUsers">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccessFailedCount" type="xs:int" />
+      <xs:element minOccurs="0" name="AspNetRoles" nillable="true" type="tns:ArrayOfAspNetRoles" />
+      <xs:element minOccurs="0" name="AspNetUserClaims" nillable="true" type="tns:ArrayOfAspNetUserClaims" />
+      <xs:element minOccurs="0" name="AspNetUserLogins" nillable="true" type="tns:ArrayOfAspNetUserLogins" />
+      <xs:element minOccurs="0" name="ConcurrencyStamp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailConfirmed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LockoutEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LockoutEndDateUtc" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Messages" nillable="true" type="tns:ArrayOfMessages" />
+      <xs:element minOccurs="0" name="NormalizedEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NormalizedUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PasswordHash" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumberConfirmed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SecurityStamp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TwoFactorEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="AspNetUsers" nillable="true" type="tns:AspNetUsers" />
+  <xs:complexType name="ArrayOfAspNetRoles">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AspNetRoles" nillable="true" type="tns:AspNetRoles" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAspNetRoles" nillable="true" type="tns:ArrayOfAspNetRoles" />
+  <xs:complexType name="AspNetRoles">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AspNetRoleClaims" nillable="true" type="tns:ArrayOfAspNetRoleClaims" />
+      <xs:element minOccurs="0" name="AspNetUsers" nillable="true" type="tns:ArrayOfAspNetUsers" />
+      <xs:element minOccurs="0" name="ConcurrencyStamp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NormalizedName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AspNetRoles" nillable="true" type="tns:AspNetRoles" />
+  <xs:complexType name="ArrayOfAspNetRoleClaims">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AspNetRoleClaims" nillable="true" type="tns:AspNetRoleClaims" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAspNetRoleClaims" nillable="true" type="tns:ArrayOfAspNetRoleClaims" />
+  <xs:complexType name="AspNetRoleClaims">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AspNetRoles" nillable="true" type="tns:AspNetRoles" />
+      <xs:element minOccurs="0" name="ClaimType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClaimValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="RoleId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AspNetRoleClaims" nillable="true" type="tns:AspNetRoleClaims" />
+  <xs:complexType name="ArrayOfAspNetUsers">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AspNetUsers" nillable="true" type="tns:AspNetUsers" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAspNetUsers" nillable="true" type="tns:ArrayOfAspNetUsers" />
+  <xs:complexType name="ArrayOfAspNetUserClaims">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AspNetUserClaims" nillable="true" type="tns:AspNetUserClaims" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAspNetUserClaims" nillable="true" type="tns:ArrayOfAspNetUserClaims" />
+  <xs:complexType name="AspNetUserClaims">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AspNetUsers" nillable="true" type="tns:AspNetUsers" />
+      <xs:element minOccurs="0" name="ClaimType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClaimValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AspNetUserClaims" nillable="true" type="tns:AspNetUserClaims" />
+  <xs:complexType name="ArrayOfAspNetUserLogins">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AspNetUserLogins" nillable="true" type="tns:AspNetUserLogins" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAspNetUserLogins" nillable="true" type="tns:ArrayOfAspNetUserLogins" />
+  <xs:complexType name="AspNetUserLogins">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AspNetUsers" nillable="true" type="tns:AspNetUsers" />
+      <xs:element minOccurs="0" name="LoginProvider" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProviderDisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProviderKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AspNetUserLogins" nillable="true" type="tns:AspNetUserLogins" />
+  <xs:complexType name="ArrayOfMessages">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Messages" nillable="true" type="tns:Messages" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessages" nillable="true" type="tns:ArrayOfMessages" />
   <xs:complexType name="Codes">
     <xs:sequence>
       <xs:element minOccurs="0" name="Id" type="xs:int" />
@@ -24,35 +127,10 @@
     <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="Codes" nillable="true" type="tns:Codes" />
-  <xs:complexType name="ArrayOfMessages">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Messages" nillable="true" type="tns:Messages" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfMessages" nillable="true" type="tns:ArrayOfMessages" />
-  <xs:complexType name="Users">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Messages" nillable="true" type="tns:ArrayOfMessages" />
-      <xs:element minOccurs="0" name="PasswordHash" nillable="true" type="xs:base64Binary" />
-      <xs:element minOccurs="0" name="PasswordSalt" nillable="true" type="xs:base64Binary" />
-      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
-    </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
-  </xs:complexType>
-  <xs:element name="Users" nillable="true" type="tns:Users" />
   <xs:complexType name="ArrayOfCodes">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Codes" nillable="true" type="tns:Codes" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfCodes" nillable="true" type="tns:ArrayOfCodes" />
-  <xs:complexType name="ArrayOfUsers">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Users" nillable="true" type="tns:Users" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfUsers" nillable="true" type="tns:ArrayOfUsers" />
 </xs:schema>

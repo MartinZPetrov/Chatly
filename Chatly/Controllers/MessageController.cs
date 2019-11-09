@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace Chatly.Controllers
 {
     public class MessageController : Controller
@@ -35,7 +36,7 @@ namespace Chatly.Controllers
                 chatRoomModel.CodeId = msg.Codes.Id;
                 chatRoomModel.RoomCode = msg.Codes.PinCode;
                 chatRoomModel.Message = msg.Message;
-                chatRoomModel.UserName = msg.Users.UserName;
+                chatRoomModel.UserName = msg.AspNetUsers.UserName;
                 chatRoomModel.MessageId = msg.Id;
                 list.Add(chatRoomModel);
             }
@@ -80,7 +81,7 @@ namespace Chatly.Controllers
             viewModel.Message = msg.Message;
             viewModel.MessageId = msg.Id;
             viewModel.Codes = listCodes;
-            viewModel.UserName = msg.Users.UserName;
+            viewModel.UserName = msg.AspNetUsers.UserName;
 
             return View("MessageForm", viewModel);
         }
