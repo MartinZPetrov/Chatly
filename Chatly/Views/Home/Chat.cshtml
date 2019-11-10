@@ -61,12 +61,20 @@
         $(document).ready(function () {
             //$("#btnJoin").click();
 
-            $('#txbMessage').on("keypress", function (e) {
+            $('#txbMessageOne').on("keypress", function (e) {
                 var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
                 if (key == 13) {
-                    $("#btnSend").click();
+                    $("#btnSendOne").click();
                 }
             });
+
+            $('#txbMessageTwo').on("keypress", function (e) {
+                var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+                if (key == 13) {
+                    $("#btnSendTwo").click();
+                }
+            });
+
             $("#ddl1").change(function () {
                 $("#btnJoin").click();
             });

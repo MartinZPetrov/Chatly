@@ -75,7 +75,7 @@ namespace Chatly.Controllers
                 return HttpNotFound();
 
             var viewModel = new ChatRoomViewModel();
-            viewModel.CodeId = msg.Id;
+            viewModel.CodeId = (int)msg.PinId;
             viewModel.RoomCode = msg.Codes.PinCode;
             viewModel.Code = new CodeViewModel() { Id = msg.Codes.Id, Code = msg.Codes.PinCode }; ;
             viewModel.Message = msg.Message;

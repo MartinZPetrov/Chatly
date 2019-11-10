@@ -71,8 +71,11 @@ namespace Chatly.Controllers
         [HttpPost]
         public async Task<ActionResult> AddMessage(string user, string message, string roomCode)
         {
-            var userModel = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            var usersFromDB = await dataservice.GetUserListAsync();
+            //var userModel = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            var userModel = usersFromDB.FirstOrDefault(e => e.Email.Trim().ToLower() == user);
             var codes = await dataservice.GetCodesListAsync();
+
             var code = codes.FirstOrDefault(e => e.PinCode == roomCode);
             var msg = new Messages();
             msg.Message = message;
